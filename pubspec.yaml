@@ -20,6 +20,12 @@ dependencies:
   flutter:
     sdk: flutter
   image_picker: ^0.5.0+9
+  flutter_launcher_icons: ^0.7.2+1
+
+flutter_icons:
+  image_path: "assets/logo/logo_size_4X.png"
+  android: true
+  ios: trus
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
