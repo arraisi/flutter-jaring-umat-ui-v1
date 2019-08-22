@@ -75,27 +75,23 @@ class _DataDiri extends State<DataDiri> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(
               height: 75,
             ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Text(
-                "Lengkapi Akunmu!",
-                style: headingStyle,
-              ),
+            Text(
+              "Lengkapi Akunmu!",
+              style: headingStyle,
             ),
             SizedBox(
               height: 10,
             ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Text(
-                "Unggah foto diri dan lengkapi namad Anda\nuntuk mulai berbagi kebaikan!",
-                textAlign: TextAlign.center,
-                style: searchBarStyle,
-              ),
+            Text(
+              "Unggah foto diri dan lengkapi namad Anda\nuntuk mulai berbagi kebaikan!",
+              textAlign: TextAlign.center,
+              style: searchBarStyle,
             ),
             Padding(
               padding: EdgeInsets.only(top: 50),
@@ -163,7 +159,7 @@ class _DataDiri extends State<DataDiri> {
               height: 45,
               child: FlatButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/login/data-diri');
+                  Navigator.of(context).pushNamed('/login/follow-akun');
                 },
                 child: Text(
                   "Selanjutanya",

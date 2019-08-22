@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'views/login.dart';
 import 'views/otp.dart';
 import 'views/data_diri.dart';
+import 'views/follow_akun_amil.dart';
 import '../main.dart';
 
 void App() {
@@ -14,6 +15,7 @@ void App() {
         '/login': (context) => Login(),
         '/login/otp': (context) => Otp(),
         '/login/data-diri': (context) => DataDiri(),
+        '/login/follow-akun': (context) => FollowAkun(),
 //        '/onboarding': (context) => OnboardingView(),
 //        '/onboarding/step2': (context) => Step2View(),
 //        '/onboarding/step3': (context) => Step3View(),

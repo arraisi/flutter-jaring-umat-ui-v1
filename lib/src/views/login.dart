@@ -106,7 +106,7 @@ class _LoginState extends State<Login> {
                       padding: EdgeInsets.all(0),
                       icon: Icon(
                         SocialMediaIcon.facebook,
-                        color: Colors.blue,
+                        color: Colors.blue[700],
                       ),
                       iconSize: 65,
                     ),
@@ -114,7 +114,7 @@ class _LoginState extends State<Login> {
                       padding: EdgeInsets.all(0),
                       icon: Icon(
                         SocialMediaIcon.google,
-                        color: Colors.red,
+                        color: Colors.red[700],
                       ),
                       iconSize: 65,
                     ),
@@ -122,7 +122,7 @@ class _LoginState extends State<Login> {
                       padding: EdgeInsets.all(0),
                       icon: Icon(
                         SocialMediaIcon.linkedin,
-                        color: Colors.lightBlue,
+                        color: Colors.lightBlue[700],
                       ),
                       iconSize: 65,
                     ),
