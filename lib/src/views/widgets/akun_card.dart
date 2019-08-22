@@ -12,9 +12,8 @@ class AkunCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15),
+      padding: const EdgeInsets.only(left: 10),
       child: Container(
-        height: 65,
         width: 165,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
@@ -24,7 +23,7 @@ class AkunCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 20, bottom: 5),
+              padding: const EdgeInsets.only(top: 10, bottom: 5),
               child: Image.asset(
                 imgUrl,
                 width: 85,
@@ -51,9 +50,9 @@ class AkunCard extends StatelessWidget {
                 .grey[800], fontFamily: 'sofiapro-light', fontSize: 14),),
             Text('$aksiGalangAmal Aksi Galang Amal', textAlign: TextAlign.center, style: TextStyle(color: Colors
                 .grey[800], fontFamily: 'sofiapro-light', fontSize: 14),),
-            SizedBox(height: 10,),
+            SizedBox(height: 15,),
             Container(
-              height: 40,
+              height: 35,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(45),
                 border: Border.all(width: 2, color: Colors.green)
@@ -63,7 +62,7 @@ class AkunCard extends StatelessWidget {
                 },
                 child: Text(
                   "Follow",
-                  style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 18, color: Colors.green),
+                  style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 16, color: Colors.green),
                 ),
                 color: Colors.white,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),

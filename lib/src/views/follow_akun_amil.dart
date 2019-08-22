@@ -33,7 +33,7 @@ class _FollowAkunState extends State<FollowAkun> {
         elevation: 0,
         title: Text(
           "Follow Akun Amil",
-          style: TextStyle(fontSize: 26, fontFamily: 'sofiapro-bold', color: Colors.black),
+          style: TextStyle(fontSize: 24, fontFamily: 'sofiapro-bold', color: Colors.black),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -43,20 +43,23 @@ class _FollowAkunState extends State<FollowAkun> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 50),
-            Text(
-              "Mulai Beramal Sekarang!",
-              style: subHeadingStyle,
+            Padding(
+              padding: const EdgeInsets.only(top: 30),
+              child: Text(
+                "Mulai Beramal Sekarang!",
+                style: subHeadingStyle,
+              ),
             ),
-            SizedBox(height: 10),
-            Text(
-              "Follow akun Amil terpopuler dibawah ini dan mulai berpartisipasi pada galang amal mereka.",
-              textAlign: TextAlign.center,
-              style: headphoneDescStyle,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: Text(
+                "Follow akun Amil terpopuler dibawah ini dan mulai berpartisipasi pada galang amal mereka.",
+                textAlign: TextAlign.center,
+                style: headphoneDescStyle,
+              ),
             ),
-            SizedBox(height: 30),
             Container(
-              height: 275,
+              height: 265,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: akunAmils.length,
@@ -77,7 +80,7 @@ class _FollowAkunState extends State<FollowAkun> {
                 onPressed: () {},
                 child: Text(
                   "Lihat Semua",
-                  style: TextStyle(fontSize: 18, fontFamily: 'sofiapro-bold', color: Colors.blue),
+                  style: TextStyle(fontSize: 16, fontFamily: 'sofiapro-bold', color: Colors.blue),
                 ),
               ),
             ),
@@ -90,7 +93,7 @@ class _FollowAkunState extends State<FollowAkun> {
                 },
                 child: Text(
                   "Selanjutanya",
-                  style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 18, color: Colors.white),
+                  style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 16, color: Colors.white),
                 ),
                 color: Colors.green,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),

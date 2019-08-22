@@ -104,14 +104,14 @@ class _OtpState extends State<Otp> {
               ),
               Container(
                 height: 80,
-                width: 330,
+                width: 300,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                        height: 50,
-                        width: 50,
+                        height: 45,
+                        width: 45,
                         decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(100)),
                         child: TextField(
                           controller: otpDigit1Ctrl,
@@ -133,8 +133,8 @@ class _OtpState extends State<Otp> {
                           },
                         )),
                     Container(
-                        height: 50,
-                        width: 50,
+                        height: 45,
+                        width: 45,
                         decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(100)),
                         child: TextField(
                           controller: otpDigit2Ctrl,
@@ -157,8 +157,8 @@ class _OtpState extends State<Otp> {
                           },
                         )),
                     Container(
-                        height: 50,
-                        width: 50,
+                        height: 45,
+                        width: 45,
                         decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(100)),
                         child: TextField(
                           controller: otpDigit3Ctrl,
@@ -181,8 +181,8 @@ class _OtpState extends State<Otp> {
                           },
                         )),
                     Container(
-                        height: 50,
-                        width: 50,
+                        height: 45,
+                        width: 45,
                         decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(100)),
                         child: TextField(
                           controller: otpDigit4Ctrl,
@@ -205,8 +205,8 @@ class _OtpState extends State<Otp> {
                           },
                         )),
                     Container(
-                        height: 50,
-                        width: 50,
+                        height: 45,
+                        width: 45,
                         decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(100)),
                         child: TextField(
                           controller: otpDigit5Ctrl,
@@ -229,8 +229,8 @@ class _OtpState extends State<Otp> {
                           },
                         )),
                     Container(
-                        height: 50,
-                        width: 50,
+                        height: 45,
+                        width: 45,
                         decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(100)),
                         child: TextField(
                           controller: otpDigit6Ctrl,
@@ -261,9 +261,11 @@ class _OtpState extends State<Otp> {
                   style: headphoneDescStyle,
                 ),
               ),
-              SizedBox(
-                width: 310,
-                height: 45,
+              Container(
+                height: 40,
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(horizontal: 75),
+                decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(45)),
                 child: FlatButton(
                   onPressed: () {
                     if (!isSubmitted) submit();
@@ -271,7 +273,7 @@ class _OtpState extends State<Otp> {
                   child: Text(
                     isSubmitted ? "Loading..." : "Selanjutanya",
                     style: TextStyle(
-                        fontFamily: 'sofiapro-bold', fontSize: 18, color: otpFilled ? Colors.white : Colors.grey[700]),
+                        fontFamily: 'sofiapro-bold', fontSize: 16, color: otpFilled ? Colors.white : Colors.grey[700]),
                   ),
                   color: otpFilled ? Colors.green : Colors.grey[400],
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),

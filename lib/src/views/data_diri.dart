@@ -21,12 +21,11 @@ class _DataDiri extends State<DataDiri> {
       if (value == 'assets/images/default_picture_man.png') {
         defaultPictureWoman = false;
         defaultPictureMan = !defaultPictureMan;
-        defaultPictureMan ? _selectedDefaultPicture = value : _selectedDefaultPicture ="";
+        defaultPictureMan ? _selectedDefaultPicture = value : _selectedDefaultPicture = "";
       } else {
         defaultPictureMan = false;
         defaultPictureWoman = !defaultPictureWoman;
-        defaultPictureMan ? _selectedDefaultPicture = value : _selectedDefaultPicture ="";
-
+        defaultPictureMan ? _selectedDefaultPicture = value : _selectedDefaultPicture = "";
       }
     });
   }
@@ -78,15 +77,12 @@ class _DataDiri extends State<DataDiri> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-              height: 75,
-            ),
-            Text(
-              "Lengkapi Akunmu!",
-              style: headingStyle,
-            ),
-            SizedBox(
-              height: 10,
+            Padding(
+              padding: const EdgeInsets.only(top: 30, bottom: 10),
+              child: Text(
+                "Lengkapi Akunmu!",
+                style: headingStyle,
+              ),
             ),
             Text(
               "Unggah foto diri dan lengkapi namad Anda\nuntuk mulai berbagi kebaikan!",
@@ -94,7 +90,7 @@ class _DataDiri extends State<DataDiri> {
               style: searchBarStyle,
             ),
             Padding(
-              padding: EdgeInsets.only(top: 50),
+              padding: EdgeInsets.only(top: 20),
               child: Container(
                 height: 175,
                 width: double.infinity,
@@ -112,13 +108,13 @@ class _DataDiri extends State<DataDiri> {
                           final ImageSource imageSource = await _asyncImageSourceDialog(context);
                         },
                         child: Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
                           child: Icon(
                             NavigationIcon.upload,
                             color: Colors.white,
-                            size: 24,
+                            size: 20,
                           ),
                         ),
                       ),
@@ -131,7 +127,7 @@ class _DataDiri extends State<DataDiri> {
               height: 15,
             ),
             Container(
-              height: 45,
+              height: 40,
               margin: EdgeInsets.symmetric(horizontal: 50),
               decoration: BoxDecoration(color: Colors.grey.withOpacity(.22), borderRadius: BorderRadius.circular(30)),
               child: Center(
@@ -154,9 +150,11 @@ class _DataDiri extends State<DataDiri> {
             SizedBox(
               height: 15,
             ),
-            SizedBox(
-              width: 310,
-              height: 45,
+            Container(
+              height: 40,
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(45)),
               child: FlatButton(
                 onPressed: () {
                   Navigator.of(context).pushNamed('/login/follow-akun');
@@ -345,7 +343,7 @@ class _DataDiri extends State<DataDiri> {
   Widget emptyPicture() {
     return Icon(
       EmptyPicture.empty_picture,
-      size: 155,
+      size: 130,
       color: Colors.grey,
     );
   }
@@ -353,14 +351,14 @@ class _DataDiri extends State<DataDiri> {
   Widget defaultPicture() {
     return Image.asset(
       _selectedDefaultPicture,
-      width: 155,
+      width: 130,
     );
   }
 
   Widget selectedImage() {
     return Container(
-        width: 155,
-        height: 155,
+        width: 130,
+        height: 130,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.white.withOpacity(0.5),
