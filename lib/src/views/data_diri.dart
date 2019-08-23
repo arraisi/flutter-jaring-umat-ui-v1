@@ -50,7 +50,7 @@ class _DataDiri extends State<DataDiri> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(12.0),
           child: Container(
               decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(100)),
               child: IconButton(
@@ -67,110 +67,119 @@ class _DataDiri extends State<DataDiri> {
         elevation: 0,
         title: Text(
           "Data Diri",
-          style: TextStyle(fontSize: 26, fontFamily: 'sofiapro-bold', color: Colors.black),
+          style: TextStyle(fontSize: 22, fontFamily: 'sofiapro-bold', color: Colors.black),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 30, bottom: 10),
-              child: Text(
-                "Lengkapi Akunmu!",
-                style: headingStyle,
-              ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Image.asset(
+              "assets/logo/accent_app_width_full_screen.png",
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.bottomLeft,
             ),
-            Text(
-              "Unggah foto diri dan lengkapi namad Anda\nuntuk mulai berbagi kebaikan!",
-              textAlign: TextAlign.center,
-              style: searchBarStyle,
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Container(
-                height: 175,
-                width: double.infinity,
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Stack(
-                    alignment: Alignment.bottomRight,
-                    children: <Widget>[
-                      _selectedImage == null
-                          ? _selectedDefaultPicture.isEmpty ? emptyPicture() : defaultPicture()
-                          : selectedImage(),
-                      GestureDetector(
-                        onTap: () async {
-                          print(context);
-                          final ImageSource imageSource = await _asyncImageSourceDialog(context);
-                        },
+          ),
+          Center(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(bottom: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Lengkapi Akunmu!",
+                    style: headingStyle,
+                  ),
+                  Text(
+                    "Unggah foto diri dan lengkapi namad Anda\nuntuk mulai berbagi kebaikan!",
+                    textAlign: TextAlign.center,
+                    style: searchBarStyle,
+                  ),
+                  Container(
+                    height: 175,
+                    width: double.infinity,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: <Widget>[
+                          _selectedImage == null
+                              ? _selectedDefaultPicture.isEmpty ? emptyPicture() : defaultPicture()
+                              : selectedImage(),
+                          GestureDetector(
+                            onTap: () async {
+                              print(context);
+                              final ImageSource imageSource = await _asyncImageSourceDialog(context);
+                            },
+                            child: Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
+                              child: Icon(
+                                NavigationIcon.upload,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: 40,
+                    margin: EdgeInsets.symmetric(horizontal: 50),
+                    decoration: BoxDecoration(color: Colors.grey.withOpacity(.22), borderRadius: BorderRadius.circular(30)),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 18, right: 5),
                         child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
-                          child: Icon(
-                            NavigationIcon.upload,
-                            color: Colors.white,
-                            size: 20,
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Nama Lengkap",
+                                hintStyle: headphoneDescStyle,
+                                helperStyle: searchBarStyle),
+                            keyboardType: TextInputType.text,
+                            textInputAction: TextInputAction.go,
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Container(
-              height: 40,
-              margin: EdgeInsets.symmetric(horizontal: 50),
-              decoration: BoxDecoration(color: Colors.grey.withOpacity(.22), borderRadius: BorderRadius.circular(30)),
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 18, right: 5),
-                  child: Container(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Nama Lengkap",
-                          hintStyle: headphoneDescStyle,
-                          helperStyle: searchBarStyle),
-                      keyboardType: TextInputType.text,
-                      textInputAction: TextInputAction.go,
                     ),
                   ),
-                ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: 40,
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(horizontal: 50),
+                    decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(45)),
+                    child: FlatButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/login/follow-akun');
+                      },
+                      child: Text(
+                        "Selanjutanya",
+                        style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 18, color: Colors.white),
+                      ),
+                      color: Colors.green,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+                    ),
+                  )
+                ],
               ),
             ),
-            SizedBox(
-              height: 15,
-            ),
-            Container(
-              height: 40,
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(horizontal: 50),
-              decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(45)),
-              child: FlatButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/login/follow-akun');
-                },
-                child: Text(
-                  "Selanjutanya",
-                  style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 18, color: Colors.white),
-                ),
-                color: Colors.green,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
-              ),
-            )
-          ],
-        ),
+          ),
+        ],
       ),
-      bottomNavigationBar: Image.asset('assets/logo/accent_app_width_full_screen.png'),
     );
   }
 
