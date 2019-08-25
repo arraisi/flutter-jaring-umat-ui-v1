@@ -102,12 +102,12 @@ class _FollowAkunState extends State<FollowAkun> {
                   margin: EdgeInsets.symmetric(horizontal: 75),
                   decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(45)),
                   child: FlatButton(
-                    onPressed: () {},
-                    child: Text("Selanjutanya",
-                      style: TextStyle(
-                          fontFamily: 'sofiapro-bold',
-                          fontSize: 16,
-                          color: Colors.white),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/login/follow-akun');
+                    },
+                    child: Text(
+                      "Selanjutanya",
+                      style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 16, color: Colors.white),
                     ),
                     color: Colors.green,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
