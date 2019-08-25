@@ -72,113 +72,106 @@ class _DataDiri extends State<DataDiri> {
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Image.asset(
-              "assets/logo/accent_app_width_full_screen.png",
+      body: Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/logo/accent_app_width_full_screen.png"),
               fit: BoxFit.fitWidth,
-              alignment: Alignment.bottomLeft,
-            ),
-          ),
-          Center(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.only(bottom: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "Lengkapi Akunmu!",
-                    style: headingStyle,
-                  ),
-                  Text(
-                    "Unggah foto diri dan lengkapi namad Anda\nuntuk mulai berbagi kebaikan!",
-                    textAlign: TextAlign.center,
-                    style: searchBarStyle,
-                  ),
-                  Container(
-                    height: 175,
-                    width: double.infinity,
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Stack(
-                        alignment: Alignment.bottomRight,
-                        children: <Widget>[
-                          _selectedImage == null
-                              ? _selectedDefaultPicture.isEmpty ? emptyPicture() : defaultPicture()
-                              : selectedImage(),
-                          GestureDetector(
-                            onTap: () async {
-                              print(context);
-                              final ImageSource imageSource = await _asyncImageSourceDialog(context);
-                            },
-                            child: Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
-                              child: Icon(
-                                NavigationIcon.upload,
-                                color: Colors.white,
-                                size: 20,
-                              ),
+              alignment: Alignment.bottomCenter),
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Lengkapi Akunmu!",
+                  style: headingStyle,
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "Unggah foto diri dan lengkapi namad Anda\nuntuk mulai berbagi kebaikan!",
+                  textAlign: TextAlign.center,
+                  style: searchBarStyle,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 30),
+                  width: double.infinity,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Stack(
+                      alignment: Alignment.bottomRight,
+                      children: <Widget>[
+                        _selectedImage == null
+                            ? _selectedDefaultPicture.isEmpty ? emptyPicture() : defaultPicture()
+                            : selectedImage(),
+                        GestureDetector(
+                          onTap: () async {
+                            print(context);
+                            final ImageSource imageSource = await _asyncImageSourceDialog(context);
+                          },
+                          child: Container(
+                            height: 40,
+                            width: 40,
+                            decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
+                            child: Icon(
+                              NavigationIcon.upload,
+                              color: Colors.white,
+                              size: 20,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    height: 40,
-                    margin: EdgeInsets.symmetric(horizontal: 50),
-                    decoration: BoxDecoration(color: Colors.grey.withOpacity(.22), borderRadius: BorderRadius.circular(30)),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 18, right: 5),
-                        child: Container(
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: "Nama Lengkap",
-                                hintStyle: headphoneDescStyle,
-                                helperStyle: searchBarStyle),
-                            keyboardType: TextInputType.text,
-                            textInputAction: TextInputAction.go,
-                          ),
+                ),
+                Container(
+                  height: 35,
+                  margin: EdgeInsets.symmetric(horizontal: 50),
+                  decoration: BoxDecoration(color: Colors.grey.withOpacity(.22), borderRadius: BorderRadius.circular(30)),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 18, right: 5),
+                      child: Container(
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Nama Lengkap",
+                              hintStyle: headphoneDescStyle,
+                              helperStyle: searchBarStyle),
+                          keyboardType: TextInputType.text,
+                          textInputAction: TextInputAction.go,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    height: 40,
-                    width: double.infinity,
-                    margin: EdgeInsets.symmetric(horizontal: 50),
-                    decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(45)),
-                    child: FlatButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/login/follow-akun');
-                      },
-                      child: Text(
-                        "Selanjutanya",
-                        style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 18, color: Colors.white),
-                      ),
-                      color: Colors.green,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: 35,
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(horizontal: 50),
+                  decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(45)),
+                  child: FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/login/follow-akun');
+                    },
+                    child: Text(
+                      "Selanjutanya",
+                      style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 18, color: Colors.white),
                     ),
-                  )
-                ],
-              ),
+                    color: Colors.green,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+                  ),
+                )
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -186,23 +179,24 @@ class _DataDiri extends State<DataDiri> {
   // DIALOG
   dialogContent(BuildContext context) {
     return Container(
-        height: 500,
-        width: 400,
-        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(30)),
+        height: 450,
+        width: double.infinity,
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
         child: Stack(
           children: <Widget>[
             Positioned(
-              top: 22,
-              right: 22,
+              top: 10,
+              right: 10,
               child: Container(
-                height: 40,
-                width: 40,
+                height: 25,
+                width: 25,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: Colors.green),
                 child: IconButton(
+                  alignment: Alignment.center,
                     icon: Icon(
                       NavigationIcon.close,
                       color: Colors.white,
-                      size: 20,
+                      size: 10,
                     ),
                     onPressed: () {
                       Navigator.pop(context, null);
@@ -216,10 +210,10 @@ class _DataDiri extends State<DataDiri> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(top: 50),
+                    padding: const EdgeInsets.only(top: 30),
                     child: Icon(
                       EmptyPicture.empty_picture,
-                      size: 95,
+                      size: 90,
                       color: Colors.grey,
                     ),
                   ),
@@ -239,7 +233,7 @@ class _DataDiri extends State<DataDiri> {
                   ),
                   Container(
                     height: 3.5,
-                    width: 265,
+                    margin: EdgeInsets.symmetric(horizontal: 10),
                     color: Colors.grey[200],
                   ),
                   SimpleDialogOption(
@@ -251,7 +245,7 @@ class _DataDiri extends State<DataDiri> {
                   ),
                   Container(
                     height: 3.5,
-                    width: 265,
+                    margin: EdgeInsets.symmetric(horizontal: 10),
                     color: Colors.grey[200],
                   ),
                   Padding(
@@ -265,7 +259,7 @@ class _DataDiri extends State<DataDiri> {
                     height: 15,
                   ),
                   Container(
-                    width: 210,
+                    width: 195,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
@@ -274,7 +268,7 @@ class _DataDiri extends State<DataDiri> {
                           children: <Widget>[
                             Image.asset(
                               'assets/images/default_picture_man.png',
-                              width: 95,
+                              width: 90,
                             ),
                             GestureDetector(
                               onTap: () {
@@ -300,7 +294,7 @@ class _DataDiri extends State<DataDiri> {
                           children: <Widget>[
                             Image.asset(
                               'assets/images/default_picture_woman.png',
-                              width: 95,
+                              width: 90,
                             ),
                             GestureDetector(
                               onTap: () {
@@ -327,19 +321,19 @@ class _DataDiri extends State<DataDiri> {
                   SizedBox(
                     height: 20,
                   ),
-                  SizedBox(
-                    width: 270,
-                    height: 45,
+                  Container(
+                    height: 40,
+                    width: 180,
                     child: FlatButton(
                       onPressed: () {
                         Navigator.pop(context, null);
                       },
+                      color: Colors.green,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
                       child: Text(
                         "Unggah",
                         style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 18, color: Colors.white),
                       ),
-                      color: Colors.green,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
                     ),
                   )
                 ],
@@ -352,7 +346,7 @@ class _DataDiri extends State<DataDiri> {
   Widget emptyPicture() {
     return Icon(
       EmptyPicture.empty_picture,
-      size: 130,
+      size: 120,
       color: Colors.grey,
     );
   }
@@ -360,14 +354,14 @@ class _DataDiri extends State<DataDiri> {
   Widget defaultPicture() {
     return Image.asset(
       _selectedDefaultPicture,
-      width: 130,
+      width: 120,
     );
   }
 
   Widget selectedImage() {
     return Container(
-        width: 130,
-        height: 130,
+        width: 120,
+        height: 120,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.white.withOpacity(0.5),

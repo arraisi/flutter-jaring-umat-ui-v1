@@ -26,7 +26,7 @@ class AkunCard extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10, bottom: 5),
               child: Image.asset(
                 imgUrl,
-                width: 85,
+                width: 65,
               ),
             ),
             Text(
@@ -52,7 +52,7 @@ class AkunCard extends StatelessWidget {
                 .grey[800], fontFamily: 'sofiapro-light', fontSize: 14),),
             SizedBox(height: 15,),
             Container(
-              height: 35,
+              height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(45),
                 border: Border.all(width: 2, color: Colors.green)

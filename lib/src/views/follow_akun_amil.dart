@@ -38,71 +38,86 @@ class _FollowAkunState extends State<FollowAkun> {
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: Text(
-                "Mulai Beramal Sekarang!",
-                style: subHeadingStyle,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 30),
-              child: Text(
-                "Follow akun Amil terpopuler dibawah ini dan mulai berpartisipasi pada galang amal mereka.",
-                textAlign: TextAlign.center,
-                style: headphoneDescStyle,
-              ),
-            ),
-            Container(
-              height: 265,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: akunAmils.length,
-                  itemBuilder: (context, index) {
-                    var amil = akunAmils[index];
-                    return AkunCard(
-                      imgUrl: amil.image,
-                      title: amil.title,
-                      aksiGalangAmal: amil.aksiGalangAmal,
-                      bintang: amil.bintang,
-                      pengikut: amil.pengikut,
-                    );
-                  }),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 10),
-              child: FlatButton(
-                onPressed: () {},
-                child: Text(
-                  "Lihat Semua",
-                  style: TextStyle(fontSize: 16, fontFamily: 'sofiapro-bold', color: Colors.blue),
+      body: Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/logo/accent_app_width_full_screen.png"),
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.bottomCenter),
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Mulai Beramal Sekarang!",
+                  style: subHeadingStyle,
                 ),
-              ),
-            ),
-            SizedBox(
-              width: 310,
-              height: 45,
-              child: FlatButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/login/follow-akun');
-                },
-                child: Text(
-                  "Selanjutanya",
-                  style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 16, color: Colors.white),
+                Text(
+                  "Follow akun Amil terpopuler dibawah ini dan mulai berpartisipasi pada galang amal mereka.",
+                  textAlign: TextAlign.center,
+                  style: headphoneDescStyle,
                 ),
-                color: Colors.green,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
-              ),
-            )
-          ],
+                SizedBox(height: 30),
+                Container(
+                  height: 230,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: akunAmils.length,
+                      itemBuilder: (context, index) {
+                        var amil = akunAmils[index];
+                        return AkunCard(
+                          imgUrl: amil.image,
+                          title: amil.title,
+                          aksiGalangAmal: amil.aksiGalangAmal,
+                          bintang: amil.bintang,
+                          pengikut: amil.pengikut,
+                        );
+                      }),
+                ),
+                FlatButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Lihat Semua",
+                    style: TextStyle(fontSize: 16, fontFamily: 'sofiapro-bold', color: Colors.blue),
+                  ),
+                ),
+//                FlatButton(
+//                  onPressed: () {
+//                    Navigator.of(context).pushNamed('/login/follow-akun');
+//                  },
+//                  child: Text(
+//                    "Selanjutanya",
+//                    style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 16, color: Colors.white),
+//                  ),
+//                  color: Colors.green,
+//                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+//                )
+                Container(
+                  height: 35,
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(horizontal: 75),
+                  decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(45)),
+                  child: FlatButton(
+                    onPressed: () {},
+                    child: Text("Selanjutanya",
+                      style: TextStyle(
+                          fontFamily: 'sofiapro-bold',
+                          fontSize: 16,
+                          color: Colors.white),
+                    ),
+                    color: Colors.green,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
       ),
-      bottomNavigationBar: Image.asset('assets/logo/accent_app_width_full_screen.png'),
     );
   }
 }

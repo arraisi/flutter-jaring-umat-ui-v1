@@ -28,12 +28,12 @@ class _MyHomePageState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 95),
+        width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/logo/logo_size_4X.png',),
+            Image.asset('assets/logo/logo_size_4X.png', height: 120,),
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Text("Jaring Umat", style: TextStyle(fontFamily: 'sofiapro-bold', fontSize: 22),),

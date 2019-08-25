@@ -23,7 +23,7 @@ dependencies:
   flutter_launcher_icons: ^0.7.2+1
 
 flutter_icons:
-  image_path: "assets/logo/logo_size_4X.png"
+  image_path: "assets/logo/jaring-umat-launcher.png"
   android: true
   ios: trus
 
